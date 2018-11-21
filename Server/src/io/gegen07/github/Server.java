@@ -21,8 +21,10 @@ public class Server {
 
     public Server (int port) throws IOException {
         serverSocket = new ServerSocket(port);
+        System.out.println(port);
         clientList = new ArrayList<>();
     }
+
     public void startServer() throws IOException {
 
         while (true) {
@@ -31,13 +33,15 @@ public class Server {
             out = new PrintWriter(client.getSocket().getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(client.getSocket().getInputStream()));
 
-            System.out.println("Nova conexão com o cliente " + client.getSocket().getInetAddress().getHostAddress());
+           // startCredentials(client);
 
-            startCredentials(client);
-
-            ClientHandler handler = new ClientHandler(client);
+            ClientHandler handler = new ClientHandler(client, this);
             this.clientList.add(client);
             handler.start();
+
+            System.out.println("Nova conexão com o cliente " + client.getSocket().getInetAddress().getHostAddress());
+            sendToClients("Nova conexão com o cliente " + client.getSocket().getInetAddress().getHostAddress());
+
         }
     }
 
@@ -47,4 +51,14 @@ public class Server {
         out.println("Digite seu nome: ");
         client.setName(in.readLine());
     }
+
+    public void sendToClients(String text) throws IOException {
+        for (Client c: clientList){
+            PrintWriter output = new PrintWriter(c.getSocket().getOutputStream(), true);
+            output.println(text);
+        }
+    }
+
+
+
 }

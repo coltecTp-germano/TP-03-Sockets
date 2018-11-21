@@ -19,5 +19,7 @@ public class Main {
         for (Server s: servers) {
             s.startServer();
         }
+
+
     }
 }
