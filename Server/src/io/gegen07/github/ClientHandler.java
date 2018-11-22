@@ -19,10 +19,8 @@ public class ClientHandler extends Thread {
     public void run() {
         try {
             Scanner s = new Scanner(this.client.getSocket().getInputStream());
-            //PrintWriter output = new PrintWriter(this.client.getSocket().getOutputStream(), true);
             while(s.hasNextLine()) {
                 String line = s.nextLine();
-                //output.println(line);
                 this.server.sendToClients(line);
                 System.out.println(line);
             }

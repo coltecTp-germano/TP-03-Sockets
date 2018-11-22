@@ -25,6 +25,8 @@ public class ClientConnection implements Runnable{
             System.out.println(cliente.getPort());
             socket = new Socket(SERVER_IP, cliente.getPort());
 
+            PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
+            out.println(cliente.getUsername() + " entrou na sala");
 
             /* Lê mensagens do servidor */
             Scanner s = new Scanner(socket.getInputStream());

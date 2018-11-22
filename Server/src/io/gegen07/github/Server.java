@@ -33,23 +33,13 @@ public class Server implements Runnable {
             out = new PrintWriter(client.getSocket().getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(client.getSocket().getInputStream()));
 
-           // startCredentials(client);
-
             ClientHandler handler = new ClientHandler(client, this);
             this.clientList.add(client);
             handler.start();
 
             System.out.println("Nova conexão com o cliente " + client.getSocket().getInetAddress().getHostAddress());
-            sendToClients("Nova conexão com o cliente " + client.getSocket().getInetAddress().getHostAddress());
 
         }
-    }
-
-    public void startCredentials(Client client) throws IOException {
-        out.println("Digite seu username: ");
-        client.setUsername(in.readLine());
-        out.println("Digite seu nome: ");
-        client.setName(in.readLine());
     }
 
     public void sendToClients(String text) throws IOException {

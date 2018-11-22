@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         TextView chat = findViewById(R.id.lbl_mensagens);
                         chat.append(text+"\n");
+                        EditText input = findViewById(R.id.txt_info);
+                        input.setText("");
                     }
                 });
             }
