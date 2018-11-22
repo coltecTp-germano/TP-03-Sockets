@@ -17,7 +17,8 @@ public class Main {
         servers.add(new Server(port+3));
 
         for (Server s: servers) {
-            s.startServer();
+            Thread t = new Thread(s);
+            t.start();
         }
 
 

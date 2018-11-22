@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Server {
+public class Server implements Runnable {
     private PrintWriter out;
     private BufferedReader in;
     private List<Client> clientList;
@@ -60,5 +60,12 @@ public class Server {
     }
 
 
-
+    @Override
+    public void run() {
+        try {
+            this.startServer();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

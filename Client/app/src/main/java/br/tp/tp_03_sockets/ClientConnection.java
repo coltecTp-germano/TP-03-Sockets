@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class ClientConnection implements Runnable{
     private Client cliente;
     private Socket socket;
-    private static final String SERVER_IP = "192.168.0.16";
+    private static final String SERVER_IP = "10.0.2.2";
     private MainActivity activity;
 
     ClientConnection(Client cliente, MainActivity activity){
