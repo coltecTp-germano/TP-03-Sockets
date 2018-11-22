@@ -1,56 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="50dp"
+    android:background="@color/colorPrimary"
     tools:context=".LoginActivity">
 
-    <EditText
+    <TextView
+        android:id="@+id/title"
+        android:layout_marginTop="60dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="QualéZé"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:fontFamily="casual"
+        android:textAlignment="center"/>
+
+
+    <EditText
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingLeft="15dp"
+        android:background="@drawable/edit_rounded"
         android:hint="Nome"
         android:id="@+id/txt_name"
         />
 
     <EditText
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edit_rounded"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:paddingLeft="15dp"
         android:hint="Username"
         android:id="@+id/txt_username"
         android:layout_below="@id/txt_name"
         />
 
     <Button
-        android:layout_width="wrap_content"
+        android:background="@drawable/button_rounded"
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Geral"
-        android:id="@+id/btn_geral"
+        android:text="Fazer login"
+        android:id="@+id/btn_login"
         android:layout_below="@id/txt_username"
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Eventos"
-        android:id="@+id/btn_eventos"
-        android:layout_below="@id/btn_geral"
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Oportunidades"
-        android:id="@+id/btn_oportunidades"
-        android:layout_below="@id/btn_eventos"
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="OffTopic"
-        android:id="@+id/btn_offtopic"
-        android:layout_below="@id/btn_oportunidades"
         />
 
 

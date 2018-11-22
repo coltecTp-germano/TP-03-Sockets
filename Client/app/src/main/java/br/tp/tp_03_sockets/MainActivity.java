@@ -1,6 +1,7 @@
 package br.tp.tp_03_sockets;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,15 +25,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /* SharedPreferences */
+        SharedPreferences pref = this.getSharedPreferences("QUALE", 0);
+
         /* Button de enviar e entrada que contém a mensagem */
         Button btnEnviar = findViewById(R.id.btn_enviar);
         final EditText txtMensagem = findViewById(R.id.txt_info);
 
-        /* Recupera extras da Intent */
+        /* Recupera extras do Shared e Intent*/
         Intent intent = getIntent();
-        final String name = intent.getStringExtra(LoginActivity.EXTRA_NAME);
-        final String username = intent.getStringExtra(LoginActivity.EXTRA_USERNAME);
-        final int port = intent.getIntExtra(LoginActivity.EXTRA_PORT, 12000);
+        final String name = pref.getString("name","");
+        final String username = pref.getString("username","");
+        final int port = intent.getIntExtra(SalasActivity.EXTRA_PORT, 12000);
 
 
         /* Cria o cliente e conecta ao servidor */
