@@ -36,6 +36,8 @@ public class LoginActivity extends AppCompatActivity {
                 editor.putString("name", name.getText().toString());
                 editor.putString("username", username.getText().toString());
 
+                editor.commit();
+
                 Intent intent = new Intent(LoginActivity.this, SalasActivity.class);
                 startActivity(intent);
 
